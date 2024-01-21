@@ -1,14 +1,14 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import random
 import locators
 
 url = 'https://stellarburgers.nomoreparties.site/'
 
 #Корректная регистрация
 def test_registration(driver):
-    name = 'Lns19842222'
-    email = 'Lns19842222@ya.ru'
+    name = str('Lns') + str(random.randint(100, 999))
+    email = str('Lns') + str(random.randint(100, 999)) + str('@ya.ru')
     password = '1234567'
     #Войти в аккаунт
     driver.find_element(*locators.Locators.but_get).click()
