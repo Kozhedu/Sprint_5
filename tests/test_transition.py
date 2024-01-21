@@ -11,7 +11,7 @@ url = 'https://stellarburgers.nomoreparties.site/'
 url_exit = 'https://stellarburgers.nomoreparties.site/login'
 
 #Переход в личный кабинет
-def test_personal(driver):
+def test_go_to_personal_account(driver):
     driver.find_element(*locators.Locators.button_personal).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locators.Locators.button_gett))
     #Ввод данных
@@ -25,7 +25,7 @@ def test_personal(driver):
     #Проверка
     assert driver.find_element(*locators.Locators.text_name_in).get_attribute('value') == name
 #Переход из личного кабинета в конструктор 
-def test_cons(driver):
+def test_transition_personal_account_to_constructor(driver):
     driver.find_element(*locators.Locators.button_personal).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locators.Locators.button_gett))
     #Ввод данных
@@ -41,7 +41,7 @@ def test_cons(driver):
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locators.Locators.bur_test)) 
     assert driver.current_url == url
 ##Переход из личного кабинета через логотип
-def test_cons_logo(driver):
+def test_transition_personal_account_through_logo(driver):
     driver.find_element(*locators.Locators.button_personal).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locators.Locators.button_gett))
     #Ввод данных
@@ -58,7 +58,7 @@ def test_cons_logo(driver):
     assert driver.current_url == url
 
 #выход
-def test_cons_exit(driver):
+def test_exit_personal_account(driver):
     driver.find_element(*locators.Locators.button_personal).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locators.Locators.button_gett))
     #Ввод данных
